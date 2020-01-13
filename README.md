@@ -68,6 +68,13 @@ The following table lists the configurable parameters of the HDFS chart and thei
 | `persistence.dataNode.accessMode`                 | Access mode for the dataNode volume                                                | `ReadWriteOnce`                                                  |
 | `persistence.dataNode.size`                       | Size of the dataNode volume                                                        | `10Gi`                                                           |
 
+Extra environment variables can be included by adding them under extraEnv in the values.yaml file
+
+```
+extraEnv:
+  ENV_VAR_1: foo
+  ENV VAR 2: bar
+```
 
 # References
 

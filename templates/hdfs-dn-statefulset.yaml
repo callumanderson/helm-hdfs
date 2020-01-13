@@ -56,6 +56,10 @@ spec:
         env:
         - name: RANGER_ENABLED
           value: {{ .Values.ranger.enabled | quote }}
+       {{- range $key, $value := .Values.extraEnv }}
+       - name: {{ $key }}
+         value: {{ $value }}
+       {{- end }}
         readinessProbe:
           httpGet:
             path: /
