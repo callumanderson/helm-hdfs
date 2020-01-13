@@ -5,8 +5,8 @@ version: 1.0.0
 appVersion: 2.7.3
 home: https://hadoop.apache.org/
 sources:
-- https://github.com/apache/hadoop
+- https://github.com/Telefonica/helm-charts/tree/master/hdfs
 icon: http://hadoop.apache.org/images/hadoop-logo.jpg
 maintainers:
-- name: Oscar Bonilla
-  email: oscar.bonillagonzalez@telefonica.com
+- name: Callum Anderson
+  email: me@callum-anderson.com
