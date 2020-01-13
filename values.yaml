@@ -1,13 +1,13 @@
 # The base hadoop image to use for all components.
 # See this repo for image build details: https://github.com/Comcast/kube-yarn/tree/master/image
-image: danisla/hadoop:2.7.3
+image: globaldevopsreg11.azurecr.io/hadoop:3.1.3
 imagePullPolicy: IfNotPresent
 
 # The version of the hadoop libraries being used in the image.
-hadoopVersion: 2.7.3
+hadoopVersion: 3.1.3
 
 # Select antiAffinity as either hard or soft, default is soft
-antiAffinity: "soft"
+antiAffinity: "hard"
 
 ranger:
   enabled: false

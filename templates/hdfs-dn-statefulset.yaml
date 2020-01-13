@@ -75,6 +75,7 @@ spec:
         volumeMounts:
         - name: ranger-plugin-vol
           mountPath: /ranger-hdfs-plugin/install.properties
+          subPath: install.properties
         - name: hadoop-config
           mountPath: /tmp/hadoop-config
         - name: {{ .Values.persistence.dataNode.name }}

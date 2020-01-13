@@ -41,7 +41,7 @@ $ helm install --name hdfs-test \
 
 # Ranger
 
-Ranger
+Ranger has been added to the nameNode and dataNodes using a configmap.
 
 ## Configuration
 
@@ -64,7 +64,7 @@ The following table lists the configurable parameters of the HDFS chart and thei
 | `persistence.nameNode.size`                       | Size of the nameNode volume                                                        | `5Gi`                                                            |
 | `persistence.dataNode.enabled`                    | Enable/disable dataNode persistent volume                                          | `false`                                                          |
 | `persistence.dataNode.name`                       | name of the dataNode persistent volume                                             | `hdfs-dn-data`                                                   |
-| `persistence.dataNode.storageClass`               | Name of the StorageClass to use per your volume provider                           | `default`                                                              |
+| `persistence.dataNode.storageClass`               | Name of the StorageClass to use per your volume provider                           | `default`                                                        |
 | `persistence.dataNode.accessMode`                 | Access mode for the dataNode volume                                                | `ReadWriteOnce`                                                  |
 | `persistence.dataNode.size`                       | Size of the dataNode volume                                                        | `10Gi`                                                           |
 
