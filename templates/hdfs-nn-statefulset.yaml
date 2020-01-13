@@ -52,6 +52,9 @@ spec:
         - "-d"
         resources:
 {{ toYaml .Values.hdfs.nameNode.resources | indent 10 }}
+        env:
+          - name: RANGER_ENABLED
+            value: {{ .Values.ranger.enabled | quote }}
         readinessProbe:
           httpGet:
             path: /
@@ -65,11 +68,16 @@ spec:
           initialDelaySeconds: 10
           timeoutSeconds: 2
         volumeMounts:
+        - name: ranger-plugin-vol
+          mountPath: /ranger/hdfs-plugin/install.properties
         - name: hadoop-config
           mountPath: /tmp/hadoop-config
         - name: dfs
           mountPath: /root/hdfs/namenode
       volumes:
+      - name: ranger-plugin-vol
+        configMap:
+          name: {{ template "hadoop.fullname" . }}-ranger-plugin
       - name: hadoop-config
         configMap:
           name: {{ template "hadoop.fullname" . }}
@@ -77,6 +85,6 @@ spec:
       {{- if .Values.persistence.nameNode.enabled }}
         persistentVolumeClaim:
           claimName: {{ template "hadoop.fullname" . }}-hdfs-nn
-      {{- else }}        
+      {{- else }}
         emptyDir: {}
       {{- end }}

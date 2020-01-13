@@ -9,6 +9,29 @@ hadoopVersion: 2.7.3
 # Select antiAffinity as either hard or soft, default is soft
 antiAffinity: "soft"
 
+ranger:
+  enabled: false
+  host: ""
+  port: 6080
+  repoName: ""
+
+  zookeeper:
+    host: dave-sl-zookeeper-headless
+    port: 2181
+
+  auditing:
+    summaryEnabled: false
+
+    solr:
+      enabled: true
+      host: dave-sl-solr-headless
+      port: 8983
+
+    hdfs:
+      enabled: false
+      nameNode: dave-hb-hdfs-hdfs-nn
+      nameNodePort: 9000
+
 hdfs:
   nameNode:
     pdbMinAvailable: 1

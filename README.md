@@ -39,7 +39,9 @@ $ helm install --name hdfs-test \
   hdfs
 ```
 
-TODO: Update chart to support adding nameNode Replicas
+# Ranger
+
+Ranger
 
 ## Configuration
 
