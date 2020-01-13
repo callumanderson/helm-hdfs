@@ -20,6 +20,7 @@ spec:
         release: {{ .Release.Name }}
         component: hdfs-dn
     spec:
+      subdomain: {{ include "hadoop.fullname" . }}-hdfs-dn
       affinity:
         podAntiAffinity:
         {{- if eq .Values.antiAffinity "hard" }}
