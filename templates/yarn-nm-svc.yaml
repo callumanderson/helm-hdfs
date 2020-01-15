@@ -2,22 +2,23 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "hadoop.fullname" . }}-hdfs-nn
+  name: {{ include "hadoop.fullname" . }}-yarn-nm
   labels:
-    app: {{ template "hadoop.name" . }}
+    app: {{ include "hadoop.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-    component: hdfs-nn
+    component: yarn-nm
 spec:
   ports:
-  - name: dfs
-    port: 9000
-    protocol: TCP
-  - name: webhdfs
-    port: 50070
+  - port: 8088
+    name: web
+  - port: 8082
+    name: web2
+  - port: 8042
+    name: api
   clusterIP: None
   selector:
-    app: {{ template "hadoop.name" . }}
+    app: {{ include "hadoop.name" . }}
     release: {{ .Release.Name }}
-    component: hdfs-nn
+    component: yarn-nm
